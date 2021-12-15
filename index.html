@@ -1,193 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Job Listings</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <!-- Item Start -->
-  Photosnap
-  New!
-  Featured
-  Senior Frontend Developer
-  1d ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Senior
-  <!-- Languages -->
-  HTML
-  CSS
-  JavaScript
-  <!-- Item End -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Item Start -->
-  Manage
-  New!
-  Featured
-  Fullstack Developer
-  1d ago
-  Part Time
-  Remote
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  Python
-  <!-- Tools -->
-  React
-  <!-- Item End -->
+    <title>Job Listings</title>
+  </head>
+  <body>
+    <header class="hero"></header>
+    <div class="filter">
+      <div class="filter__items"></div>
+      <a href="#">Clear</a>
+    </div>
+    <main class="main__container">
+      <div class="item">
+        <img
+          src="images/photosnap.svg"
+          alt="Photosnap Logo"
+          class="item__logo"
+        />
+        <p class="item__name text--green">
+          Photosnap
+          <span class="item__name item__name__new text--white">New!</span>
+          <span class="item__name--featured item__name__featured text--white"
+            >Featured</span
+          >
+        </p>
+        <h4 class="item__title">Senior Frontend Developer</h4>
+        <p class="item__descrip">1d ago &middot; Full Time &middot; USA only</p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__role filter__frontend">Frontend</button>
+          <button class="item__filter filter__senior">Senior</button>
+          <button class="item__filter filter__html">HTML</button>
+          <button class="item__filter filter__css">CSS</button>
+          <button class="item__filter filter__js">JavaScript</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  Account
-  New!
-  Junior Frontend Developer
-  2d ago
-  Part Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
+      <div class="item">
+        <img src="images/manage.svg" alt="Manage Logo" class="item__logo" />
+        <p class="item__name text--green">
+          Manage
+          <span class="item__name item__name__new text--white">New!</span>
+          <span class="item__name--featured item__name__featured text--white"
+            >Featured</span
+          >
+        </p>
+        <h4 class="item__title">Fullstack Developer</h4>
+        <p class="item__descrip">1d ago &middot; Part Time &middot; Remote</p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__fullstack">Fullstack</button>
+          <button class="item__filter filter__midweight">Midweight</button>
+          <button class="item__filter filter__python">Python</button>
+          <button class="item__filter filter__react">React</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  MyHome
-  Junior Frontend Developer
-  5d ago
-  Contract
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  CSS
-  JavaScript
-  <!-- Item End -->
+      <div class="item">
+        <img src="images/account.svg" alt="Account Logo" class="item__logo" />
+        <p class="item__name text--green">
+          Account
+          <span class="item__name item__name__new text--white">New!</span>
+        </p>
+        <h4 class="item__title">Junior Developer</h4>
+        <p class="item__descrip">2d ago &middot; Part Time &middot; USA only</p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__frontend">Frontend</button>
+          <button class="item__filter filter__junior">Junior</button>
+          <button class="item__filter filter__react">React</button>
+          <button class="item__filter filter__sass">Sass</button>
+          <button class="item__filter filter__js">JavaScript</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  Loop Studios
-  Software Engineer
-  1w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Ruby
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
+      <div class="item">
+        <img src="images/myhome.svg" alt="MyHome Logo" class="item__logo" />
+        <p class="item__name text--green">MyHome</p>
+        <h4 class="item__title">Junior Frontend Developer</h4>
+        <p class="item__descrip">5d ago &middot; Contract &middot; USA only</p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__frontend">Frontend</button>
+          <button class="item__filter filter__junior">Junior</button>
+          <button class="item__filter filter__css">CSS</button>
+          <button class="item__filter filter__js">JavaScript</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  FaceIt
-  Junior Backend Developer
-  2w ago
-  Full Time
-  UK only
-  <!-- Role -->
-  Backend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  Ruby
-  <!-- Tools -->
-  RoR
-  <!-- Item End -->
+      <div class="item">
+        <img
+          src="images/loop-studios.svg"
+          alt="Loop Studios Logo"
+          class="item__logo"
+        />
+        <p class="item__name text--green">Loop Studios</p>
+        <h4 class="item__title">Software Engineer</h4>
+        <p class="item__descrip">
+          1w ago &middot; Full Time &middot; Worldwide
+        </p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__fullstack">Fullstack</button>
+          <button class="item__filter filter__midweight">Midweight</button>
+          <button class="item__filter filter__sass">Sass</button>
+          <button class="item__filter filter__ruby">Ruby</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  Shortly
-  Junior Developer
-  2w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  HTML
-  JavaScript
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
+      <div class="item">
+        <img src="images/faceit.svg" alt="FaceIt Logo" class="item__logo" />
+        <p class="item__name text--green">FaceIt</p>
+        <h4 class="item__title">Junior Backend Developer</h4>
+        <p class="item__descrip">2w ago &middot; Full Time &middot; UK only</p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__backend">Backend</button>
+          <button class="item__filter filter__junior">Junior</button>
+          <button class="item__filter filter__ruby">Ruby</button>
+          <button class="item__filter filter__ror">RoR</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  Insure
-  Junior Frontend Developer
-  2w ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  Vue
-  Sass
-  <!-- Item End -->
+      <div class="item">
+        <img src="images/shortly.svg" alt="Shortly Logo" class="item__logo" />
+        <p class="item__name text--green">Shortly</p>
+        <h4 class="item__title">Junior Developer</h4>
+        <p class="item__descrip">
+          2w ago &middot; Full Time &middot; Worldwide
+        </p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__frontend">Frontend</button>
+          <button class="item__filter filter__junior">Junior</button>
+          <button class="item__filter filter__html">HTML</button>
+          <button class="item__filter filter__sass">Sass</button>
+          <button class="item__filter filter__js">JavaScript</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  Eyecam Co.
-  Full Stack Engineer
-  3w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Python
-  <!-- Tools -->
-  Django
-  <!-- Item End -->
+      <div class="item">
+        <img src="images/insure.svg" alt="Insure Logo" class="item__logo" />
+        <p class="item__name text--green">Insure</p>
+        <h4 class="item__title">Junior Frontend Developer</h4>
+        <p class="item__descrip">2w ago &middot; Full Time &middot; USA only</p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__frontend">Frontend</button>
+          <button class="item__filter filter__junior">Junior</button>
+          <button class="item__filter filter__vue">Vue</button>
+          <button class="item__filter filter__js">JavaScript</button>
+          <button class="item__filter filter__sass">Sass</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
 
-  <!-- Item Start -->
-  The Air Filter Company
-  Front-end Dev
-  1mo ago
-  Part Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      <div class="item">
+        <img
+          src="images/eyecam-co.svg"
+          alt="Eyecam Co Logo"
+          class="item__logo"
+        />
+        <p class="item__name text--green">Eyecam Co.</p>
+        <h4 class="item__title">Full Stack Engineer</h4>
+        <p class="item__descrip">
+          3w ago &middot; FUll Time &middot; Worldwide
+        </p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__fullstack">Fullstack</button>
+          <button class="item__filter filter__midweight">Midweight</button>
+          <button class="item__filter filter__js">JavaScript</button>
+          <button class="item__filter filter__django">Django</button>
+          <button class="item__filter filter__python">Python</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
+
+      <div class="item">
+        <img
+          src="images/the-air-filter-company.svg"
+          alt="The Air Filter Compay Logo"
+          class="item__logo"
+        />
+        <p class="item__name text--green">The Air Filter Company</p>
+        <h4 class="item__title">Front-end Dev</h4>
+        <p class="item__descrip">
+          1mo ago &middot; Part Time &middot; Worldwide
+        </p>
+        <hr />
+        <div class="item__filters__container">
+          <button class="item__filter filter__frontend">Frontend</button>
+          <button class="item__filter filter__junior">Junior</button>
+          <button class="item__filter filter__react">React</button>
+          <button class="item__filter filter__sass">Sass</button>
+          <button class="item__filter filter__js">JavaScript</button>
+        </div>
+        <!-- end item__filters__container -->
+      </div>
+      <!-- end item -->
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
 </html>
