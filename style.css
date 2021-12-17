@@ -34,3 +34,121 @@ The designs were created to the following widths:
 
 */
 
+/* #GENERAL FORMATTING */
+* {
+  font-size: 15px;
+  font-family: "Spartan", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: hsl(180, 52%, 96%);
+}
+
+.text--green, .item__filter {
+  color: hsl(180, 42%, 43%);
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: -.25px;
+  padding: 3px 5px;
+}
+
+/* #HEADER */
+.hero {
+  height: 150px;
+  width: 100vw;
+  background: hsl(180, 29%, 50%) url("images/bg-header-mobile.svg");
+}
+
+/* #FILTER */
+.filter {
+  width: 90vw;
+  border: solid 1px black;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+  bottom: 20px;
+}
+
+/* #MAIN */
+main {
+  margin-bottom: 50px;
+}
+
+.main__container {
+  background: hsl(180, 52%, 96%);
+}
+
+/* #ITEMS */
+.item {
+  background: white;
+  border-radius: 5px;
+  border-left: solid 5px hsl(180, 21%, 52%);
+  margin: 0 auto; 
+  width: 90vw;
+  padding: 20px;
+  box-shadow: 0 5px 15px 0 hsl(180, 7%, 76%);
+}
+
+.item__logo__container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.item__logo {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  top: 30px;
+}
+
+.item__name__flag {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: white;
+  height: 20px;
+  line-height: 20px;
+  align-items: center;
+  padding: 2px 5px;
+  border-radius: 20px;
+}
+
+.item__name__new {
+  background:hsl(180, 21%, 52%);
+  margin-left: 15px;
+}
+
+.item__name__featured {
+  background: black;
+  margin-left: 5px;
+}
+
+.item__title {
+  font-weight: 700;
+}
+
+.item__descrip {
+  font-size: .8rem;
+  color: gray;
+}
+
+.item__filters__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item__filter {
+  padding: 6px 8px;
+  margin-right: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  background:hsl(180, 29%, 91%);
+}
+
+/* #ACTIVE STATES */
+.hidden {
+  display: none;
+}
