@@ -63,13 +63,31 @@ body {
 /* #FILTER */
 .filter {
   width: 90vw;
-  border: solid 1px black;
+  min-height: 50px;
+  border-radius: 5px;
   background: white;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
   position: relative;
+  margin: 0 auto -30px;
+  padding: 5px 20px; 
   bottom: 20px;
+  box-shadow: 0 5px 15px 0 hsl(180, 7%, 76%);
+}
+
+.filter__clear {
+  background: white;
+  border: none;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: -.25px;
+  color:hsl(180, 4%, 57%);
+}
+
+.filter__clear:hover {
+  color:hsl(180, 42%, 43%);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* #MAIN */
