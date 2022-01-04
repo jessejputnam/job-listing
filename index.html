@@ -23,20 +23,31 @@
 
     <link href="normalize.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
+
+    <script src="script.js" defer></script>
   </head>
+
   <body>
     <header class="hero"></header>
 
     <div class="filter">
-      <div class="filter__items"></div>
+      <div class="filter__item__container">
+        <button class="filter__item">
+          <div class="filter__item__name">Frontend</div>
+          <img src="images/icon-remove.svg" class="filter__item__remove" />
+        </button>
+      </div>
+      <!-- end filter__item__container -->
+
       <button type="button" class="filter__clear">Clear</button>
     </div>
+    <!-- end filter -->
 
     <main class="main__container">
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
+        data-role="frontend"
+        data-level="senior"
+        data-langauges="html css javascript"
         data-tools=""
         class="item__container"
       >
@@ -62,13 +73,13 @@
           <p class="item__descrip">
             1d ago &middot; Full Time &middot; USA only
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__frontend">Frontend</button>
-            <button class="item__filter filter__senior">Senior</button>
-            <button class="item__filter filter__html">HTML</button>
-            <button class="item__filter filter__css">CSS</button>
-            <button class="item__filter filter__js">JavaScript</button>
+            <button class="item__filter">Frontend</button>
+            <button class="item__filter">Senior</button>
+            <button class="item__filter">HTML</button>
+            <button class="item__filter">CSS</button>
+            <button class="item__filter">JavaScript</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -77,10 +88,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="fullstack"
+        data-level="midweight"
+        data-langauges="python"
+        data-tools="react"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -99,12 +110,12 @@
           </p>
           <h4 class="item__title">Fullstack Developer</h4>
           <p class="item__descrip">1d ago &middot; Part Time &middot; Remote</p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__fullstack">Fullstack</button>
-            <button class="item__filter filter__midweight">Midweight</button>
-            <button class="item__filter filter__python">Python</button>
-            <button class="item__filter filter__react">React</button>
+            <button class="item__filter">Fullstack</button>
+            <button class="item__filter">Midweight</button>
+            <button class="item__filter">Python</button>
+            <button class="item__filter">React</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -113,10 +124,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="frontend"
+        data-level="junior"
+        data-langauges="javascript"
+        data-tools="sass react"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -134,13 +145,13 @@
           <p class="item__descrip">
             2d ago &middot; Part Time &middot; USA only
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__frontend">Frontend</button>
-            <button class="item__filter filter__junior">Junior</button>
-            <button class="item__filter filter__react">React</button>
-            <button class="item__filter filter__sass">Sass</button>
-            <button class="item__filter filter__js">JavaScript</button>
+            <button class="item__filter">Frontend</button>
+            <button class="item__filter">Junior</button>
+            <button class="item__filter">React</button>
+            <button class="item__filter">Sass</button>
+            <button class="item__filter">JavaScript</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -149,9 +160,9 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
+        data-role="frontend"
+        data-level="junior"
+        data-langauges="css javascript"
         data-tools=""
         class="item__container"
       >
@@ -165,12 +176,12 @@
           <p class="item__descrip">
             5d ago &middot; Contract &middot; USA only
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__frontend">Frontend</button>
-            <button class="item__filter filter__junior">Junior</button>
-            <button class="item__filter filter__css">CSS</button>
-            <button class="item__filter filter__js">JavaScript</button>
+            <button class="item__filter">Frontend</button>
+            <button class="item__filter">Junior</button>
+            <button class="item__filter">CSS</button>
+            <button class="item__filter">JavaScript</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -179,10 +190,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="fullstack"
+        data-level="midweight"
+        data-langauges="ruby"
+        data-tools="sass"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -199,12 +210,12 @@
           <p class="item__descrip">
             1w ago &middot; Full Time &middot; Worldwide
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__fullstack">Fullstack</button>
-            <button class="item__filter filter__midweight">Midweight</button>
-            <button class="item__filter filter__sass">Sass</button>
-            <button class="item__filter filter__ruby">Ruby</button>
+            <button class="item__filter">Fullstack</button>
+            <button class="item__filter">Midweight</button>
+            <button class="item__filter">Sass</button>
+            <button class="item__filter">Ruby</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -213,10 +224,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="backend"
+        data-level="junior"
+        data-langauges="ruby"
+        data-tools="ror"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -229,12 +240,12 @@
           <p class="item__descrip">
             2w ago &middot; Full Time &middot; UK only
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__backend">Backend</button>
-            <button class="item__filter filter__junior">Junior</button>
-            <button class="item__filter filter__ruby">Ruby</button>
-            <button class="item__filter filter__ror">RoR</button>
+            <button class="item__filter">Backend</button>
+            <button class="item__filter">Junior</button>
+            <button class="item__filter">Ruby</button>
+            <button class="item__filter">RoR</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -243,10 +254,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="frontend"
+        data-level="junior"
+        data-langauges="html javascript"
+        data-tools="sass"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -259,13 +270,13 @@
           <p class="item__descrip">
             2w ago &middot; Full Time &middot; Worldwide
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__frontend">Frontend</button>
-            <button class="item__filter filter__junior">Junior</button>
-            <button class="item__filter filter__html">HTML</button>
-            <button class="item__filter filter__sass">Sass</button>
-            <button class="item__filter filter__js">JavaScript</button>
+            <button class="item__filter">Frontend</button>
+            <button class="item__filter">Junior</button>
+            <button class="item__filter">HTML</button>
+            <button class="item__filter">Sass</button>
+            <button class="item__filter">JavaScript</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -274,10 +285,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="frontend"
+        data-level="junior"
+        data-langauges="javascript"
+        data-tools="vue sass"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -290,13 +301,13 @@
           <p class="item__descrip">
             2w ago &middot; Full Time &middot; USA only
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__frontend">Frontend</button>
-            <button class="item__filter filter__junior">Junior</button>
-            <button class="item__filter filter__vue">Vue</button>
-            <button class="item__filter filter__js">JavaScript</button>
-            <button class="item__filter filter__sass">Sass</button>
+            <button class="item__filter">Frontend</button>
+            <button class="item__filter">Junior</button>
+            <button class="item__filter">Vue</button>
+            <button class="item__filter">JavaScript</button>
+            <button class="item__filter">Sass</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -305,10 +316,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="fullstack"
+        data-level="midweight"
+        data-langauges="javascript python"
+        data-tools="django"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -325,13 +336,13 @@
           <p class="item__descrip">
             3w ago &middot; FUll Time &middot; Worldwide
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__fullstack">Fullstack</button>
-            <button class="item__filter filter__midweight">Midweight</button>
-            <button class="item__filter filter__js">JavaScript</button>
-            <button class="item__filter filter__django">Django</button>
-            <button class="item__filter filter__python">Python</button>
+            <button class="item__filter">Fullstack</button>
+            <button class="item__filter">Midweight</button>
+            <button class="item__filter">JavaScript</button>
+            <button class="item__filter">Django</button>
+            <button class="item__filter">Python</button>
           </div>
           <!-- end item__filters__container -->
         </div>
@@ -340,10 +351,10 @@
       <!-- end item__container -->
 
       <div
-        data-role=""
-        data-level=""
-        data-langauges=""
-        data-tools=""
+        data-role="frontend"
+        data-level="junior"
+        data-langauges="javascript"
+        data-tools="react sass"
         class="item__container"
       >
         <div class="item__logo__container">
@@ -360,13 +371,13 @@
           <p class="item__descrip">
             1mo ago &middot; Part Time &middot; Worldwide
           </p>
-          <hr />
+          <hr class="item__divider" />
           <div class="item__filters__container">
-            <button class="item__filter filter__frontend">Frontend</button>
-            <button class="item__filter filter__junior">Junior</button>
-            <button class="item__filter filter__react">React</button>
-            <button class="item__filter filter__sass">Sass</button>
-            <button class="item__filter filter__js">JavaScript</button>
+            <button class="item__filter">Frontend</button>
+            <button class="item__filter">Junior</button>
+            <button class="item__filter">React</button>
+            <button class="item__filter">Sass</button>
+            <button class="item__filter">JavaScript</button>
           </div>
           <!-- end item__filters__container -->
         </div>
