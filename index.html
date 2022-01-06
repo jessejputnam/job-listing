@@ -30,20 +30,13 @@
   <body>
     <header class="hero"></header>
 
-    <div class="filter">
-      <div class="filter__item__container">
-        <button class="filter__item">
-          <div class="filter__item__name">Frontend</div>
-          <img src="images/icon-remove.svg" class="filter__item__remove" />
-        </button>
-        <button class="filter__item">
-          <div class="filter__item__name">Frontend</div>
-          <img src="images/icon-remove.svg" class="filter__item__remove" />
-        </button>
-      </div>
+    <div class="filter hidden">
+      <div class="filter__item__container"></div>
       <!-- end filter__item__container -->
 
       <!-- 
+        // SAMPLE FILTER ITEM
+
         <button class="filter__item">
           <div class="filter__item__name">Frontend</div>
           <img src="images/icon-remove.svg" class="filter__item__remove" />
@@ -70,7 +63,7 @@
           />
         </div>
         <!-- end item__logo__container -->
-        <div class="item">
+        <div class="item item__featured__border">
           <p class="item__name text--green">
             Photosnap
             <span class="item__name__flag item__name__new text--white"
@@ -103,13 +96,14 @@
         data-level="midweight"
         data-langauges="python"
         data-tools="react"
+        data-featured="true"
         class="item__container"
       >
         <div class="item__logo__container">
           <img src="images/manage.svg" alt="Manage Logo" class="item__logo" />
         </div>
         <!-- end item__logo__container -->
-        <div class="item">
+        <div class="item item__featured__border">
           <p class="item__name text--green">
             Manage
             <span class="item__name__flag item__name__new text--white"

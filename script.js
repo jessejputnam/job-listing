@@ -16,6 +16,7 @@ let filterRemove = document.querySelectorAll(".filter__item__remove");
 const filterClear = document.querySelector(".filter__clear");
 const itemContainer = document.querySelectorAll(".item__container");
 const itemFilter = document.querySelectorAll(".item__filter");
+let newFilterItems = [];
 
 /* ########Filter######## */
 document.addEventListener("mouseup", () => {
@@ -24,15 +25,19 @@ document.addEventListener("mouseup", () => {
 
 // Create filter item when item filter clicked
 itemFilter.forEach((filterChoice) => {
-  filterChoice.addEventListener("click", () => {
+  filterChoice.addEventListener("click", (e) => {
+    // Add check of filter for if choice already selected
+    console.log(e.target);
+
     // Remove hidden filter if empty
     if (filter.classList.contains("hidden")) filter.classList.remove("hidden");
-    // Check filter if choice already selected
 
+    // Create new filter items in DOM
     const newFilterItem = document.createElement("button");
     const newFilterName = document.createElement("div");
     const newFilterRemove = document.createElement("img");
 
+    // Add relevant classes to new filter items
     newFilterName.textContent = filterChoice.textContent;
     newFilterItem.classList.add("filter__item");
     newFilterName.classList.add("filter__item__name");
@@ -40,32 +45,26 @@ itemFilter.forEach((filterChoice) => {
     newFilterRemove.classList.add("filter__item__remove");
     newFilterRemove.src = "images/icon-remove.svg";
 
+    // Add new items to DOM
     filterItemContainer.appendChild(newFilterItem);
     newFilterItem.appendChild(newFilterName);
     newFilterItem.appendChild(newFilterRemove);
 
     filterRemove = document.querySelectorAll(".filter__item__remove");
-    console.log(filterRemove);
-  });
-});
+    newFilterItems.push(newFilterItem);
 
-// Remove filter items when clicked
-filterRemove.forEach((item) => {
-  item.addEventListener("mousedown", (e) => {
-    console.log(e);
-    console.log(filterRemove);
-    // item.parentNode.parentNode.removeChild(document.getElementById());
+    // Remove filter item when clicked
+    filterRemove.forEach((item) => {
+      item.addEventListener("mousedown", (e) => {
+        console.log(e.target);
+        item.parentNode.remove();
+      });
+    });
   });
 });
 
 document.addEventListener("keypress", () => {
-  console.log(filterRemove);
+  console.log(newFilterItems);
 });
-
-for (let i = 0; i < filterRemove.length; i++) {
-  filterRemove[i].addEventListener("click", () => {
-    console.log("hey ", i);
-  });
-}
 
 /* ########Items######## */
