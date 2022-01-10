@@ -4,60 +4,108 @@
 Table of Contents
 
 #DOM Variables
+#Stored Variables
+#Stored functions
 #Filter
 #Items
 
 */
 
-/* ########DOM Variables######## */
+/* ################ #DOM Variables######## */
 const filter = document.querySelector(".filter");
 const filterItemContainer = document.querySelector(".filter__item__container");
 let filterRemove = document.querySelectorAll(".filter__item__remove");
 const filterClear = document.querySelector(".filter__clear");
 const itemContainer = document.querySelectorAll(".item__container");
 const itemFilter = document.querySelectorAll(".item__filter");
+
+/* ################ #Stored Variables ################ */
+let newFilterName, newFilterItem, newFilterRemove;
 let newFilterItems = [];
 
-/* ########Filter######## */
+/* ################ #Stored Functions ################ */
+const createFilterItemsDOM = function () {
+  newFilterItem = document.createElement("button");
+  newFilterName = document.createElement("div");
+  newFilterRemove = document.createElement("img");
+};
+
+const addClassestoFilterItemsDOM = function () {
+  newFilterItem.classList.add("filter__item");
+  newFilterName.classList.add("filter__item__name");
+  newFilterRemove.classList.add("filter__item__remove");
+  newFilterRemove.src = "images/icon-remove.svg";
+};
+
+const appendItemsToDOM = function () {
+  filterItemContainer.appendChild(newFilterItem);
+  newFilterItem.appendChild(newFilterName);
+  newFilterItem.appendChild(newFilterRemove);
+};
+
+/* ################ #Filter################ */
+// Hide filter if empty
 document.addEventListener("mouseup", () => {
   if (!filterItemContainer.hasChildNodes()) filter.classList.add("hidden");
 });
 
+// Clear Filter btn
+filterClear.addEventListener("click", () => {
+  // Remove all children of filter item container
+  while (filterItemContainer.firstChild) {
+    filterItemContainer.removeChild(filterItemContainer.firstChild);
+  }
+  // hide filter bar
+  filter.classList.add("hidden");
+  // unhide hidden item cards
+  itemContainer.forEach((item) => item.classList.remove("hidden"));
+  // empty filter array
+  newFilterItems = [];
+});
+
 // Create filter item when item filter clicked
 itemFilter.forEach((filterChoice) => {
-  filterChoice.addEventListener("click", (e) => {
+  filterChoice.addEventListener("click", () => {
     // Add check of filter for if choice already selected
-    console.log(e.target);
+    if (newFilterItems.includes(filterChoice.textContent)) return;
 
-    // Remove hidden filter if empty
+    // Make filter visible
     if (filter.classList.contains("hidden")) filter.classList.remove("hidden");
 
     // Create new filter items in DOM
-    const newFilterItem = document.createElement("button");
-    const newFilterName = document.createElement("div");
-    const newFilterRemove = document.createElement("img");
+    createFilterItemsDOM();
 
     // Add relevant classes to new filter items
     newFilterName.textContent = filterChoice.textContent;
-    newFilterItem.classList.add("filter__item");
-    newFilterName.classList.add("filter__item__name");
     newFilterItem.setAttribute("id", filterChoice.textContent);
-    newFilterRemove.classList.add("filter__item__remove");
-    newFilterRemove.src = "images/icon-remove.svg";
+    addClassestoFilterItemsDOM();
 
     // Add new items to DOM
-    filterItemContainer.appendChild(newFilterItem);
-    newFilterItem.appendChild(newFilterName);
-    newFilterItem.appendChild(newFilterRemove);
+    appendItemsToDOM();
 
     filterRemove = document.querySelectorAll(".filter__item__remove");
-    newFilterItems.push(newFilterItem);
+    newFilterItems.push(newFilterItem.id);
+
+    // Hide item cards that don't match selection
+    itemContainer.forEach((item) => {
+      if (!item.classList.contains(filterChoice.textContent.toLowerCase()))
+        item.classList.add("hidden");
+    });
 
     // Remove filter item when clicked
     filterRemove.forEach((item) => {
       item.addEventListener("mousedown", (e) => {
-        console.log(e.target);
+        // remove filter item from array
+        newFilterItems = newFilterItems.filter(
+          (filterItem) => filterItem !== item.parentNode.textContent
+        );
+        // remove filter item from DOM
         item.parentNode.remove();
+        // unhide previously filtered item cards
+        itemContainer.forEach((item) => {
+          if (!item.classList.contains(filterChoice.textContent.toLowerCase()))
+            item.classList.remove("hidden");
+        });
       });
     });
   });
