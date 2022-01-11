@@ -1,6 +1,6 @@
 # Frontend Mentor - Job listings with filtering solution
 
-This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). 
+This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
@@ -9,7 +9,7 @@ This is a solution to the [Job listings with filtering challenge on Frontend Men
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-- [Author](#author)
+  
 ## Overview
 
 ### The challenge
@@ -21,7 +21,6 @@ Users should be able to:
 - Filter job listings based on the categories
 
 ## My process
-Begin with HTML and CSS styling. 
 
 ### Built with
 
@@ -29,22 +28,30 @@ Begin with HTML and CSS styling.
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- JavaScript
 
 ### What I learned
 
-Making sure to include event listeners within the function in which they were created, lest they not be accessible.
+Trickiest part was trying to figure out how to filter items with multiple filters, having each card be run through with multiple checks for each.
 
-## Author
-Jesse Putnam
+I finally realized an easy solution would be to create a counter for the filter checks. For each filter check that passes, it would add 1. 
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+If, by the end, the filter check counter was equal to the number of filters (`filters`.length), then that means the item passed ALL filter checks. 
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+Furthermore, having the filter update on mouse up from document allows for continuous checks and updates. May be resource intensive; I don't know. Maybe doesn't scale well.
 
-## Acknowledgments
+```js
+document.addEventListener("mouseup", () => {
+  jobCards.forEach((card) => {
+    let filterTrueCheck = 0;
+    if (newFilterItems.length === 0) return card.classList.remove("hidden");
+    newFilterItems.forEach((item) => {
+      if ([...card.classList].includes(item)) filterTrueCheck++;
+    });
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+    if (filterTrueCheck !== newFilterItems.length) card.classList.add("hidden");
+    if (filterTrueCheck === newFilterItems.length)
+      card.classList.remove("hidden");
+  });
+});
+```

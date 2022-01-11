@@ -6,31 +6,35 @@ Table of Contents
 #DOM Variables
 #Stored Variables
 #Stored functions
-#Filter
-#Items
+#Filter Bar Visual
+#Filter Bar Clear Btn
+#Filter Bar Functionality
+#Filter Job Cards Functionality
 
 */
 
-/* ################ #DOM Variables######## */
+/* #################### #DOM Variables ####################### */
 const filter = document.querySelector(".filter");
 const filterItemContainer = document.querySelector(".filter__item__container");
 let filterRemove = document.querySelectorAll(".filter__item__remove");
 const filterClear = document.querySelector(".filter__clear");
-const itemContainer = document.querySelectorAll(".item__container");
+const jobCards = document.querySelectorAll(".item__container");
 const itemFilter = document.querySelectorAll(".item__filter");
 
-/* ################ #Stored Variables ################ */
+// Dynamic DOM Variables
 let newFilterName, newFilterItem, newFilterRemove;
+
+/* ##################### #Stored Variables ###################### */
 let newFilterItems = [];
 
-/* ################ #Stored Functions ################ */
+/* ###################### #Stored Functions ##################### */
 const createFilterItemsDOM = function () {
   newFilterItem = document.createElement("button");
   newFilterName = document.createElement("div");
   newFilterRemove = document.createElement("img");
 };
 
-const addClassestoFilterItemsDOM = function () {
+const addClassesToFilterItemsDOM = function () {
   newFilterItem.classList.add("filter__item");
   newFilterName.classList.add("filter__item__name");
   newFilterRemove.classList.add("filter__item__remove");
@@ -43,76 +47,91 @@ const appendItemsToDOM = function () {
   newFilterItem.appendChild(newFilterRemove);
 };
 
-/* ################ #Filter################ */
+const removeFilterFromBar = function () {
+  filterRemove.forEach((item) => {
+    item.addEventListener("mousedown", (e) => {
+      // remove filter item from array
+      newFilterItems = newFilterItems.filter(
+        (filterItem) => filterItem !== item.parentNode.textContent.toLowerCase()
+      );
+      // remove filter item from DOM
+      item.parentNode.remove();
+    });
+  });
+};
+
+const updateFilterRemove = () =>
+  (filterRemove = document.querySelectorAll(".filter__item__remove"));
+
+const storeFilterToArray = () =>
+  newFilterItems.push(newFilterItem.id.toLowerCase());
+
+/* ################### #Filter Bar Visual ##################### */
+
 // Hide filter if empty
 document.addEventListener("mouseup", () => {
   if (!filterItemContainer.hasChildNodes()) filter.classList.add("hidden");
+  else filter.classList.remove("hidden");
 });
 
-// Clear Filter btn
-filterClear.addEventListener("click", () => {
+/* ################### #Filter Bar Clear Btn ##################### */
+
+filterClear.addEventListener("mousedown", () => {
   // Remove all children of filter item container
   while (filterItemContainer.firstChild) {
     filterItemContainer.removeChild(filterItemContainer.firstChild);
   }
-  // hide filter bar
-  filter.classList.add("hidden");
   // unhide hidden item cards
-  itemContainer.forEach((item) => item.classList.remove("hidden"));
+  jobCards.forEach((job) => job.classList.remove("hidden"));
   // empty filter array
   newFilterItems = [];
 });
 
+/* ################## #Filter Bar Functionality ################### */
+
 // Create filter item when item filter clicked
 itemFilter.forEach((filterChoice) => {
-  filterChoice.addEventListener("click", () => {
+  filterChoice.addEventListener("mousedown", () => {
     // Add check of filter for if choice already selected
-    if (newFilterItems.includes(filterChoice.textContent)) return;
-
-    // Make filter visible
-    if (filter.classList.contains("hidden")) filter.classList.remove("hidden");
+    if (newFilterItems.includes(filterChoice.textContent.toLowerCase())) return;
 
     // Create new filter items in DOM
     createFilterItemsDOM();
 
-    // Add relevant classes to new filter items
+    // Add relevant classes and IDs to new filter items
     newFilterName.textContent = filterChoice.textContent;
     newFilterItem.setAttribute("id", filterChoice.textContent);
-    addClassestoFilterItemsDOM();
+    addClassesToFilterItemsDOM();
 
-    // Add new items to DOM
     appendItemsToDOM();
 
-    filterRemove = document.querySelectorAll(".filter__item__remove");
-    newFilterItems.push(newFilterItem.id);
+    updateFilterRemove();
 
-    // Hide item cards that don't match selection
-    itemContainer.forEach((item) => {
-      if (!item.classList.contains(filterChoice.textContent.toLowerCase()))
-        item.classList.add("hidden");
+    storeFilterToArray();
+
+    // Filter for individual selection
+    jobCards.forEach((job) => {
+      if (!job.classList.contains(filterChoice.textContent.toLowerCase()))
+        job.classList.add("hidden");
     });
 
     // Remove filter item when clicked
-    filterRemove.forEach((item) => {
-      item.addEventListener("mousedown", (e) => {
-        // remove filter item from array
-        newFilterItems = newFilterItems.filter(
-          (filterItem) => filterItem !== item.parentNode.textContent
-        );
-        // remove filter item from DOM
-        item.parentNode.remove();
-        // unhide previously filtered item cards
-        itemContainer.forEach((item) => {
-          if (!item.classList.contains(filterChoice.textContent.toLowerCase()))
-            item.classList.remove("hidden");
-        });
-      });
-    });
+    removeFilterFromBar();
   });
 });
 
-document.addEventListener("keypress", () => {
-  console.log(newFilterItems);
-});
+/* ############### #Filter Job Cards Functionality ############### */
 
-/* ########Items######## */
+document.addEventListener("mouseup", () => {
+  jobCards.forEach((card) => {
+    let filterTrueCheck = 0;
+    if (newFilterItems.length === 0) return card.classList.remove("hidden");
+    newFilterItems.forEach((item) => {
+      if ([...card.classList].includes(item)) filterTrueCheck++;
+    });
+
+    if (filterTrueCheck !== newFilterItems.length) card.classList.add("hidden");
+    if (filterTrueCheck === newFilterItems.length)
+      card.classList.remove("hidden");
+  });
+});
