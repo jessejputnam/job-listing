@@ -1,40 +1,18 @@
-/* 
-# Front-end Style Guide
+/*
 
-## Layout
+TABLE OF CONTENTS:
 
-The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px
-
-## Colors
-
-### Primary
-
-- Desaturated Dark Cyan: hsl(180, 29%, 50%)
-
-### Neutral
-
-- Light Grayish Cyan (Background): hsl(180, 52%, 96%)
-- Light Grayish Cyan (Filter Tablets): hsl(180, 31%, 95%)
-- Dark Grayish Cyan: hsl(180, 8%, 52%)
-- Very Dark Grayish Cyan: hsl(180, 14%, 20%)
-
-## Typography
-
-### Body Copy
-
-- Font size: 15px
-
-### Headings
-
-- Family: [Spartan](https://fonts.google.com/specimen/Spartan)
-- Weights: 500, 700
+#General Formatting
+#Header
+#Filter
+#Main
+#Items
+#Active States
+#Media Queries
 
 */
 
-/* #GENERAL FORMATTING */
+/* ############### #GENERAL FORMATTING ############### */
 * {
   font-size: 15px;
   font-family: "Spartan", sans-serif;
@@ -53,14 +31,16 @@ body {
   padding: 3px 5px;
 }
 
-/* #HEADER */
+/* ##################### #HEADER ##################### */
 .hero {
   height: 150px;
   width: 100vw;
   background: hsl(180, 29%, 50%) url("images/bg-header-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-/* #FILTER */
+/* ##################### #FILTER ##################### */
 .filter {
   width: 90vw;
   border-radius: 5px;
@@ -108,10 +88,11 @@ body {
   padding: 7px 7px;
 }
 
-.filter__item__remove:hover {
-  background: black;
-  color: white;
-  cursor: pointer;
+@media(hover: hover) and (pointer: fine) {
+  .filter__item__remove:hover {
+    background: black;
+    cursor: pointer;
+  }
 }
 
 .filter__clear {
@@ -125,13 +106,15 @@ body {
   position: relative;
 }
 
-.filter__clear:hover {
-  color:hsl(180, 42%, 43%);
-  text-decoration: underline;
-  cursor: pointer;
+@media(hover: hover) and (pointer: fine) {
+  .filter__clear:hover {
+    color:hsl(180, 42%, 43%);
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
-/* #MAIN */
+/* ###################### #MAIN ###################### */
 main {
   margin-bottom: 50px;
 }
@@ -140,11 +123,10 @@ main {
   background: hsl(180, 52%, 96%);
 }
 
-/* #ITEMS */
+/* ###################### #ITEMS ###################### */
 .item {
   background: white;
   border-radius: 5px;
-  /* border-left: solid 5px hsl(180, 21%, 52%); */
   margin: 0 auto; 
   width: 90vw;
   padding: 20px;
@@ -192,9 +174,11 @@ main {
   font-weight: 700;
 }
 
-.item__title:hover {
-  cursor: pointer;
-  color: hsl(180, 42%, 43%);
+@media(hover: hover) and (pointer: fine) {
+  .item__title:hover {
+    cursor: pointer;
+    color: hsl(180, 42%, 43%);
+  }
 }
 
 .item__descrip {
@@ -214,16 +198,102 @@ main {
   border: none;
   border-radius: 3px;
   background:hsl(180, 29%, 91%);
+  transition: transform .05s, background-color .1s;
 }
 
-.item__filter:hover {
-  cursor: pointer;
-  background:hsl(180, 21%, 52%);
-  color: white;
+@media(hover: hover) and (pointer: fine) {
+  .item__filter:hover {
+    cursor: pointer;
+    background:hsl(180, 21%, 52%);
+    color: white;
+  } 
 }
 
-/* #ACTIVE STATES */
+.item__filter:active {
+  transform: scale(.8);
+  background-color: black;
+}
+
+/* ##################### #ACTIVE STATES ##################### */
 .hidden {
   display: none;
 }
 
+/* #################### #MEDIA QUERIES #################### */
+@media only screen and (min-width: 850px) {
+  * {
+    box-sizing: content-box;
+  }
+
+  .hero {
+    height: 156px;
+    background: hsl(180, 29%, 50%) url("images/bg-header-desktop.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .filter {
+    position: relative;
+    top: -50px;
+  }
+
+  .hero {
+    margin-bottom: 30px;
+  }
+
+  .item__divider {
+    display: none;
+  }
+
+  .item__container--desktop {
+    display: flex;
+    margin-right: 2vw;
+  }
+
+  .item__logo__container {
+    width: 0;
+  }
+
+  .item__logo {
+    position: relative;
+    right: -4vw;
+    top: 23%;
+    height: 65px;
+    width: 65px;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .item__name {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 0;
+  }
+
+  .item__name__flag {
+    height: 13px;
+  }
+
+  .item__desktop--left {
+    margin-left: 75px;
+  }
+
+  .item__title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .item__filter {
+    height: 20px;
+    position: relative;
+    top: 25%;
+  }
+
+  .filter__item__remove {
+    box-sizing: border-box;
+  }
+}

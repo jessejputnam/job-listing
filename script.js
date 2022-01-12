@@ -125,13 +125,35 @@ itemFilter.forEach((filterChoice) => {
 document.addEventListener("mouseup", () => {
   jobCards.forEach((card) => {
     let filterTrueCheck = 0;
-    if (newFilterItems.length === 0) return card.classList.remove("hidden");
+    if (newFilterItems.length === 0) {
+      card.classList.remove("hidden");
+      card.classList.add("item__container--desktop");
+      return;
+    }
     newFilterItems.forEach((item) => {
       if ([...card.classList].includes(item)) filterTrueCheck++;
     });
-
-    if (filterTrueCheck !== newFilterItems.length) card.classList.add("hidden");
-    if (filterTrueCheck === newFilterItems.length)
+    if (filterTrueCheck !== newFilterItems.length) {
+      card.classList.add("hidden");
+      card.classList.remove("item__container--desktop");
+    }
+    if (filterTrueCheck === newFilterItems.length) {
       card.classList.remove("hidden");
+      card.classList.add("item__container--desktop");
+    }
   });
 });
+
+// document.addEventListener("mouseup", () => {
+//   jobCards.forEach((card) => {
+//     let filterTrueCheck = 0;
+//     if (newFilterItems.length === 0) return card.classList.remove("hidden");
+//     newFilterItems.forEach((item) => {
+//       if ([...card.classList].includes(item)) filterTrueCheck++;
+//     });
+
+//     if (filterTrueCheck !== newFilterItems.length) card.classList.add("hidden");
+//     if (filterTrueCheck === newFilterItems.length)
+//       card.classList.remove("hidden");
+//   });
+// });
