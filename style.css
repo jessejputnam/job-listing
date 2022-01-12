@@ -220,7 +220,7 @@ main {
 }
 
 /* #################### #MEDIA QUERIES #################### */
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 900px) {
   * {
     box-sizing: content-box;
   }
@@ -247,7 +247,7 @@ main {
 
   .item__container--desktop {
     display: flex;
-    margin-right: 2vw;
+    margin-right: 6vw;
   }
 
   .item__logo__container {
@@ -256,7 +256,7 @@ main {
 
   .item__logo {
     position: relative;
-    right: -4vw;
+    right: -7.5vw;
     top: 23%;
     height: 65px;
     width: 65px;
@@ -266,6 +266,7 @@ main {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    margin-left: 6vw;
   }
 
   .item__name {
